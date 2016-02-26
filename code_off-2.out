@@ -1,26 +1,26 @@
 4148 //The total remainder liquid
-4,13 //Jar 0 contains 13 litres of liquid 4
-46,32 //Jar 1 contains 32 litres of liquid 46
-39,58 //Jar 2 contains 58 litres of liquid 39
-17,57 //Jar 3 contains 57 litres of liquid 17
-43,74 //Jar 4 contains 74 litres of liquid 43
-59,41 //Jar 5 contains 41 litres of liquid 59
-2,33 //Jar 6 contains 33 litres of liquid 2
-6,72 //Jar 7 contains 72 litres of liquid 6
-13,81 //Jar 8 contains 81 litres of liquid 13
-89,41 //Jar 9 contains 41 litres of liquid 89
-83,24 //Jar 10 contains 24 litres of liquid 83
-64,25 //Jar 11 contains 25 litres of liquid 64
-51,75 //Jar 12 contains 75 litres of liquid 51
-96,28 //Jar 13 contains 28 litres of liquid 96
-54,42 //Jar 14 contains 42 litres of liquid 54
-97,44 //Jar 15 contains 44 litres of liquid 97
-36,19 //Jar 16 contains 19 litres of liquid 36
-,0 //Jar 17 contains 0 litres of liquid Magic
-35,81 //Jar 18 contains 81 litres of liquid 35
-98,55 //Jar 19 contains 55 litres of liquid 98
-68,3 //Jar 20 contains 3 litres of liquid 68
-33,7 //Jar 21 contains 7 litres of liquid 33
-,0 //Jar 22 contains 0 litres of liquid Magic
-65,1 //Jar 23 contains 1 litres of liquid 65
-26,21 //Jar 24 contains 21 litres of liquid 26
+4,13 //Jar 0 contains 13 litres of liquid 4 and has capacity for 0 more
+46,32 //Jar 1 contains 32 litres of liquid 46 and has capacity for 0 more
+39,58 //Jar 2 contains 58 litres of liquid 39 and has capacity for 0 more
+17,57 //Jar 3 contains 57 litres of liquid 17 and has capacity for 0 more
+43,74 //Jar 4 contains 74 litres of liquid 43 and has capacity for 7 more
+59,41 //Jar 5 contains 41 litres of liquid 59 and has capacity for 56 more
+2,33 //Jar 6 contains 33 litres of liquid 2 and has capacity for 65 more
+6,72 //Jar 7 contains 72 litres of liquid 6 and has capacity for 0 more
+13,81 //Jar 8 contains 81 litres of liquid 13 and has capacity for 17 more
+89,41 //Jar 9 contains 41 litres of liquid 89 and has capacity for 42 more
+83,24 //Jar 10 contains 24 litres of liquid 83 and has capacity for 3 more
+64,25 //Jar 11 contains 25 litres of liquid 64 and has capacity for 0 more
+51,75 //Jar 12 contains 75 litres of liquid 51 and has capacity for 9 more
+96,28 //Jar 13 contains 28 litres of liquid 96 and has capacity for 63 more
+54,42 //Jar 14 contains 42 litres of liquid 54 and has capacity for 0 more
+97,44 //Jar 15 contains 44 litres of liquid 97 and has capacity for 0 more
+36,19 //Jar 16 contains 19 litres of liquid 36 and has capacity for 0 more
+,0 //Jar 17 contains 0 litres of liquid Magic and has capacity for 0 more
+35,81 //Jar 18 contains 81 litres of liquid 35 and has capacity for 18 more
+98,55 //Jar 19 contains 55 litres of liquid 98 and has capacity for 0 more
+68,3 //Jar 20 contains 3 litres of liquid 68 and has capacity for 13 more
+33,7 //Jar 21 contains 7 litres of liquid 33 and has capacity for 0 more
+,0 //Jar 22 contains 0 litres of liquid Magic and has capacity for 0 more
+65,1 //Jar 23 contains 1 litres of liquid 65 and has capacity for 0 more
+26,21 //Jar 24 contains 21 litres of liquid 26 and has capacity for 0 more

@@ -44,6 +44,21 @@ public class Main {
             System.out.println("Available liquids " + availableLiquidTypes);
             System.out.println("Jars liquids " + jars.size());
 
+            int jarSizeTotal = 0;
+            for (Jar jar : jars) {
+
+                jarSizeTotal += jar.jarSize;
+            }
+            System.out.println("Total Jar Size " + jarSizeTotal);
+
+            int totalLiquids = 0;
+            for (Integer integer : liquidQuantities.values()) {
+
+                totalLiquids += integer;
+            }
+            System.out.println("Total liquid " + totalLiquids);
+
+
             //run a couple of times to make sure all jars are filled to capacity
             for (int i = 0; i < 500; i++) {
 
@@ -67,7 +82,8 @@ public class Main {
                 sb.append(jar.filledLiquid == null ? "" : jar.filledLiquid)
                         .append(",")
                         .append(jar.filledQuantity)
-                        .append(" //Jar " + i + " contains " + jar.filledQuantity + " litres of liquid " + (jar.filledLiquid == null ? "Magic" : jar.filledLiquid) + "\n");
+                        .append(" //Jar " + i + " contains " + jar.filledQuantity + " litres of liquid " + (jar.filledLiquid == null ? "Magic" : jar.filledLiquid))
+                .append(" and has capacity for " + (jar.jarSize - jar.filledQuantity) + " more\n");
             }
 
             Files.write(Paths.get("W:\\Projects\\Personal\\CodeOff\\26Feb2016\\code_off-2.out"), sb.toString().getBytes());
@@ -115,7 +131,7 @@ public class Main {
                     liquidQuantity -= nextCandidateJar.filledQuantity;
                 }
                 else{
-                    nextCandidateJar.filledQuantity = liquidQuantity;
+                    nextCandidateJar.filledQuantity += liquidQuantity;
                     liquidQuantity = 0;
                 }
 
