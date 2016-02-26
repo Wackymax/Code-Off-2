@@ -59,11 +59,13 @@ public class Main {
             System.out.println("Total liquid " + totalLiquids);
 
 
-            //run a couple of times to make sure all jars are filled to capacity
-            for (int i = 0; i < 500; i++) {
+            fillJarsWithLiquidImproved();
 
-                fillJarsWithLiquid();
-            }
+            //run a couple of times to make sure all jars are filled to capacity
+//            for (int i = 0; i < 500; i++) {
+//
+//                fillJarsWithLiquid();
+//            }
 
             System.out.println("All Jars filled");
 
@@ -108,6 +110,52 @@ public class Main {
         }
 
         return new Jar(jarSize, jarLiquids.toArray(new Integer[]{}));
+    }
+
+    private void fillJarsWithLiquidImproved(){
+
+        for (Jar jar : jars) {
+
+            if(jar.jarSize < 1 || jar.liquidTypes.length == 0)
+                continue;
+
+            if(jar.liquidTypes.length == 1)
+            {
+                fillJarWithLiquid(jar, jar.liquidTypes[0]);
+                continue;
+            }
+            else{
+
+                int bestLiquid = -1;
+                int mostLiquid = 0;
+                for (Integer liquidType : jar.liquidTypes) {
+
+                    Integer quantity = liquidQuantities.get(liquidType);
+                    if(quantity > mostLiquid){
+                        mostLiquid = quantity;
+                        bestLiquid = liquidType;
+                    }
+                }
+                fillJarWithLiquid(jar, bestLiquid);
+            }
+        }
+    }
+
+    private void fillJarWithLiquid(Jar jar, int liquidType){
+
+        int liquidQuantity = liquidQuantities.get(liquidType);
+
+        jar.filledLiquid = liquidType;
+        if(liquidQuantity > jar.jarSize)
+        {
+            jar.filledQuantity = jar.jarSize;
+            liquidQuantities.put(liquidType, liquidQuantity - jar.jarSize);
+        }
+        else
+        {
+            jar.filledQuantity = liquidQuantity;
+            liquidQuantities.put(liquidType, 0);
+        }
     }
 
     private void fillJarsWithLiquid(){
