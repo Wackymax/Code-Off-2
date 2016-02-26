@@ -36,7 +36,7 @@ public class Main {
                 liquidQuantities.put(i - 1, Integer.parseInt(fileLines.get(i)));
             }
 
-            for (int i = 1 + availableLiquidTypes; i < fileLines.size(); i++) {
+            for (int i = 2 + availableLiquidTypes; i < fileLines.size(); i++) {
 
                 jars.add(createJar(fileLines.get(i)));
             }
@@ -115,17 +115,20 @@ public class Main {
                     liquidQuantity = 0;
                 }
 
+                availableJars.remove(nextCandidateJar);
             }
+
+            liquidQuantities.put(liquidTypeId, liquidQuantity);
         }
     }
 
-    private List<Jar> findAllJarsForLiquidType(Integer liquidType){
+    private List<Jar> findAllJarsForLiquidType(int liquidType){
 
         List<Jar> matchingJars = new ArrayList<>();
         for (Jar jar : jars) {
 
             int jarIndex = Arrays.binarySearch(jar.liquidTypes, liquidType);
-            if(jarIndex >= 0 && jars.get(jarIndex).filledLiquid == null)
+            if(jarIndex >= 0 && jar.filledLiquid == null)
                 matchingJars.add(jar);
         }
 
@@ -139,7 +142,7 @@ public class Main {
 
         for (Jar compatibleJar : compatibleJars) {
 
-            if(compatibleJar.liquidTypes.length == 0 && compatibleJar.jarSize > 0)
+            if(compatibleJar.liquidTypes.length == 1 && compatibleJar.jarSize > 0)
                 return compatibleJar;
         }
 
