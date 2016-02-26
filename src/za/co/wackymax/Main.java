@@ -44,7 +44,11 @@ public class Main {
             System.out.println("Available liquids " + availableLiquidTypes);
             System.out.println("Jars liquids " + jars.size());
 
-            fillJarsWithLiquid();
+            //run a couple of times to make sure all jars are filled to capacity
+            for (int i = 0; i < 500; i++) {
+
+                fillJarsWithLiquid();
+            }
 
             System.out.println("All Jars filled");
 
@@ -144,6 +148,9 @@ public class Main {
 
             if(compatibleJar.liquidTypes.length == 1 && compatibleJar.jarSize > 0)
                 return compatibleJar;
+
+            if(compatibleJar.filledLiquid != null && compatibleJar.filledLiquid == requiredLiquid && compatibleJar.filledQuantity < compatibleJar.jarSize)
+                return compatibleJar;
         }
 
         List<Jar> sortedJars = new ArrayList<>(compatibleJars);
@@ -153,10 +160,14 @@ public class Main {
         int closestMatchValue = Integer.MAX_VALUE;
         for (Jar sortedJar : sortedJars) {
 
+            if(!isRequiredLiquidMore(sortedJar, requiredLiquid))
+                continue;
+
             if(sortedJar.jarSize < 1)
                 continue;
 
-            if(Math.abs(sortedJar.jarSize - requiredLiquid) < closestMatchValue){
+            int matchValue = Math.abs(sortedJar.jarSize - requiredLiquid);
+            if(matchValue < closestMatchValue){
 
                 closestMatchValue = Math.abs(sortedJar.jarSize - requiredLiquid);
                 closestMatch = sortedJar;
@@ -164,6 +175,20 @@ public class Main {
         }
 
         return closestMatch;
+    }
+
+    private boolean isRequiredLiquidMore(Jar jar, int requiredLiquid){
+
+        if(jar.liquidTypes.length == 1)
+            return true;
+
+        for (Integer liquidType : jar.liquidTypes) {
+
+            if(liquidQuantities.get(liquidType) > requiredLiquid)
+                return false;
+        }
+
+        return true;
     }
 
     private static class Jar implements Comparable<Jar> {
